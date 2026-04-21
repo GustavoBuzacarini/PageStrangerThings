@@ -9,6 +9,11 @@
     src: url(fontes/Benguiat\ Bold.ttf);
 }
 
+html,
+body {
+    overflow-x: hidden !important;
+}
+
 body {
     background-color: #0c0102;
     color: rgba(255, 255, 255, 0.9);
@@ -36,7 +41,12 @@ section {
     padding: 7vw;
 }
 
-button{
+h2 {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+button {
     background-color: transparent;
     color: white;
     font-size: 16px;
@@ -46,6 +56,16 @@ button{
     outline: none;
     padding: 16px 0px;
     border-bottom: 1px solid white;
+}
+
+.bgMonstro {
+    background-image: url(imagens/bg-sec2.webp);
+    background-position: center;
+    background-size: cover;
+}
+
+ul {
+    list-style-type: none;
 }
 
 .hero {
@@ -97,14 +117,144 @@ button{
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
 
-        h2{
-            font-size: 40px;
+    .cards {
+        margin-top: 52px;
+        display: flex;
+        justify-content: space-between;
+
+        .card {
+            background-image: url(imagens/card1.webp);
+            width: 32%;
+            aspect-ratio: 16/9;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .card:nth-child(2) {
+            background-image: url(imagens/card2.webp);
+        }
+
+        .card:nth-child(3) {
+            background-image: url(imagens/card3.webp);
+        }
+    }
+}
+
+.secaoDepoimentos {
+    flex-direction: column;
+
+    .logotipos {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+    }
+
+    .depoimentos {
+        margin-top: 62px;
+        display: flex;
+        justify-content: space-between;
+
+        .depoimento {
+            width: 31%;
+
+            p {
+                margin-top: 8px;
+            }
+        }
+    }
+}
+
+.secaoAgradecimento {
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        margin-bottom: 40px;
+    }
+
+    ul {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(imagens/bg-footer.webp);
+    background-size: cover;
+    background-position: center;
+
+    .conteudoFooter {
+        display: flex;
+        width: 100%;
+        padding: 7vw;
+
+        .logoFooter {
+            width: 30%;
+
+            h3 {
+                font-size: 24px;
+                font-weight: 300;
+                letter-spacing: 7px;
+            }
+
+            h2 {
+                font-size: 3.7vw;
+                font-family: "FonteStranger";
+            }
+        }
+
+        .secoesFooter {
+            display: flex;
+            flex: 1;
+            justify-content: end;
+            gap: 6%;
+            align-items: end;
+            overflow: hidden;
+        }
+
+        .redesocial {
+            ul {
+                display: flex;
+                gap: 12px;
+            }
         }
     }
 
-    .cards{
+    .logotiposFooter {
+        width: 100%;
         display: flex;
         justify-content: space-between;
+        padding: 0 4vw;
+    }
+
+    .textoInfinito {
+        width: max-content;
+        display: flex;
+
+        h3 {
+            color: rgb(191, 191, 191);
+            font-size: 12vw;
+            font-family: "FonteStranger", sans-serif;
+            mix-blend-mode: color-dodge;
+            animation: textoInfinito 10s infinite linear;
+            padding-left: 8vw;
+        }
+    }
+}
+
+@keyframes textoInfinito{
+    100%{
+        transform: translateX(-100%) 
     }
 }
