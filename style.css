@@ -62,6 +62,9 @@ button {
     background-image: url(imagens/bg-sec2.webp);
     background-position: center;
     background-size: cover;
+    position: relative;
+    z-index: 2;
+    background-color: #0C0102;
 }
 
 ul {
@@ -140,6 +143,7 @@ ul {
 
 .secao2 {
     flex-direction: column;
+    position: relative;
 
     .titulo {
         display: flex;
