@@ -205,6 +205,9 @@ ul {
 .secaoAgradecimento {
     flex-direction: column;
     align-items: center;
+    position: relative;
+    background-color: #0C0102;
+    z-index: 2;
 
     h2 {
         margin-bottom: 40px;
@@ -225,6 +228,7 @@ footer {
     background-image: url(imagens/bg-footer.webp);
     background-size: cover;
     background-position: center;
+    z-index: -2;
 
     .conteudoFooter {
         display: flex;
