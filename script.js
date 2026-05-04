@@ -6,7 +6,7 @@ ScrollSmoother.create({
 });
 
 function animarPagina() {
-  //ANIMAÇÕES HERO
+  // ANIMAÇÕES HERO
 
   gsap.from(".hero", {
     opacity: 0,
@@ -23,7 +23,7 @@ function animarPagina() {
     duration: 1,
   });
 
-  //ANIMAÇÕES CARDS
+  // ANIMAÇÕES CARDS (ENTRADA COM SCROLL)
 
   gsap.from(".card", {
     opacity: 0,
@@ -38,6 +38,8 @@ function animarPagina() {
       scrub: true,
     },
   });
+
+  // ANIMAÇÕES AGRADECIMENTO
 
   gsap.from(".secaoAgradecimento ul li", {
     opacity: 0,
@@ -54,7 +56,7 @@ function animarPagina() {
     },
   });
 
-  //ANIMAÇÕES FOOTER
+  // ANIMAÇÕES FOOTER
 
   gsap.from("footer", {
     y: -200,
@@ -67,7 +69,7 @@ function animarPagina() {
     },
   });
 
-  // LETRAS ANIMADAS
+  // LETRAS ANIMADAS (SPLIT TEXT)
 
   const textSplit = document.querySelectorAll(".textoSplit");
 
@@ -89,12 +91,55 @@ function animarPagina() {
       },
     });
   });
+
+  // HOVER — BOTÃO "COMPRAR INGRESSOS"
+
+  const botaoIngressos = document.querySelector(".secao2 button");
+
+  const tlIngressos = gsap.timeline({ paused: true });
+
+  tlIngressos.to(botaoIngressos, {
+    scale: 1.05,
+    duration: 0.4,
+    ease: "power2.out",
+  });
+
+  botaoIngressos.addEventListener("mouseenter", () => {
+    tlIngressos.play();
+  });
+
+  botaoIngressos.addEventListener("mouseleave", () => {
+    tlIngressos.reverse();
+  });
+
+  // HOVER — CARDS (FLUTUAR PARA CIMA)
+
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach((card) => {
+    const tlCard = gsap.timeline({ paused: true });
+
+    tlCard.to(card, {
+      y: -16,
+      duration: 0.4,
+      ease: "power2.out",
+    });
+
+    card.addEventListener("mouseenter", () => {
+      tlCard.play();
+    });
+
+    card.addEventListener("mouseleave", () => {
+      tlCard.reverse();
+    });
+  });
 }
-//PRELOADER
+
+// PRELOADER
 
 const tl = gsap.timeline({
   onComplete() {
-    animarPagina()
+    animarPagina();
     gsap.to("#preloader", {
       opacity: 0,
       onComplete() {
@@ -115,4 +160,24 @@ tl.to("#preloader path", {
   fill: "rgb(168, 19, 19)",
   duration: 0.5,
   strokeDashoffset: 0,
+});
+
+// HOVER — BOTÃO PRINCIPAL DA HERO
+
+const botao = document.querySelector(".botaoPrincipal");
+
+const tlBotao = gsap.timeline({ paused: true });
+
+tlBotao.to(botao, {
+  scale: 1.05,
+  duration: 0.4,
+  ease: "power2.out",
+});
+
+botao.addEventListener("mouseenter", () => {
+  tlBotao.play();
+});
+
+botao.addEventListener("mouseleave", () => {
+  tlBotao.reverse();
 });
